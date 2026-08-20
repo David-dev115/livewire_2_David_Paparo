@@ -2,10 +2,10 @@
 
 
     {{-- @if (session('message'))
-        <div class="alert alert-success" >
-            {{ session('message') }}
+    <div class="alert alert-success" >
+        {{ session('message') }}
 
-        </div>
+    </div>
     @endif --}}
 
     <form wire:submit="store">
@@ -26,6 +26,12 @@
             <textarea wire:model.live.blur="body" name="body" id="body" cols="30" rows="10" class="form-control"></textarea>
             <div class= "text-r"> @error('body') {{$message}} @enderror </div>
 
+        </div>
+
+        <div class="mb-3">
+            <label for="image" class="form-label">Immagine</label>
+            <input wire:model="image" type="file" class="form-control" id="image" accept="image/*">
+            @error('image')<div class="text-r">{{ $message }}</div>@enderror
         </div>
 
 

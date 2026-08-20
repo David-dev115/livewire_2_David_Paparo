@@ -6,7 +6,8 @@
             <div class="col-12 d-flex justify-content-center">
 
                 <div class="card" style="width: 18rem;">
-                    <img src="https://picsum.photos/800/600" class="card-img-top" alt="immagine articolo">
+                    {{-- <img src="https://picsum.photos/800/600" class="card-img-top" alt="immagine articolo"> --}}
+                    <img src="{{ Storage::url($article->image) }}" class="card-img-top" alt="immagine articolo">
                     <div class="card-body">
                         <h5 class="card-title">{{$article->title}}</h5>
                         {{-- <h6 class="card-title">{{$article->subtitle}}</h6> --}}

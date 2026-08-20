@@ -7,7 +7,7 @@ use App\Models\Article;
 
 class ArticleController extends Controller
 {
-    
+
     public function create () {
 
         return view ('articles.create');
@@ -31,6 +31,18 @@ class ArticleController extends Controller
         return view ('articles.edit' , compact ('article'));
 
     }
+
+
+    // public function store(Request $request)
+    // {
+    // $article = Article::create([
+    //     'title' => $request->title,
+    //     'subtitle' => $request->subtitle,
+    //     'body' => $request->body,
+    //     ]);
+
+    //     return redirect()->route('articles.index');
+    // }
 
 
 }
