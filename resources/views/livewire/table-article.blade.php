@@ -1,5 +1,10 @@
 <div>
-    {{-- Care about people's approval and you will be their prisoner. --}}
+
+    @if (session()->has('message'))
+    <div class="alert alert-success">
+        {{ session('message') }}
+    </div>
+    @endif
 
 
     <table class="table">
@@ -21,7 +26,9 @@
                 <td>
                     <a href="{{route('articles.show' , compact('article'))}}" class="btn btn-info" >Dettaglio</a>
                     <a href="{{route('articles.edit' , compact('article'))}}" class="btn btn-warning" >Modifica</a>
-                    <button  wire:click="destroy({{$article}})" class="btn btn-danger" >Elimina</button>
+                    <button  wire:click="destroy({{$article}})"
+                     wire:confirm="Sei sicuro di voler eliminare questo articolo?"
+                    class="btn btn-danger" >Elimina</button>
 
                 </td>
             </tr>

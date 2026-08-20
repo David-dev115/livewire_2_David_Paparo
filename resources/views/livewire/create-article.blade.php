@@ -1,15 +1,15 @@
 <div>
-    {{-- Nothing in the world is as soft and yielding as water. --}}
-    
-    @if (session('message'))
+
+
+    {{-- @if (session('message'))
         <div class="alert alert-success" >
             {{ session('message') }}
 
         </div>
-    @endif
+    @endif --}}
 
     <form wire:submit="store">
-        
+
         <div class="mb-3">
             <label for="title" class="form-label">Titolo Articolo</label>
             <input wire:model.live="title" type="text" class="form-control" id="title">
@@ -27,10 +27,10 @@
             <div class= "text-r"> @error('body') {{$message}} @enderror </div>
 
         </div>
-        
-        
+
+
         <button type="submit" class="btn btn-primary">Crea</button>
     </form>
-    
-    
+
+
 </div>

@@ -33,9 +33,11 @@ class CreateArticle extends Component
         ]);
 
     // $this->clearForm();
-    $this->reset();
+    // $this->reset();
 
     session()->flash('message' , 'Articolo correttamente creato');
+
+    return redirect()->route('articles.index');
 
     }
 

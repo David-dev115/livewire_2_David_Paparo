@@ -12,6 +12,8 @@ class TableArticle extends Component
 
         $article->delete();
 
+        session()->flash('message', 'Articolo eliminato correttamente');
+
     }
 
     public function render()

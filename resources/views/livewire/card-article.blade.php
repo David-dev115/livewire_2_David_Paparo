@@ -2,8 +2,8 @@
     {{-- Close your eyes. Count to one. That is how long forever feels. --}}
 
     <div class="container">
-        <div class="row">
-            <div class="col-12 col-md-6">
+        <div class="row justify-content-center">
+            <div class="col-12 d-flex justify-content-center">
 
                 <div class="card" style="width: 18rem;">
                     <img src="https://picsum.photos/800/600" class="card-img-top" alt="immagine articolo">

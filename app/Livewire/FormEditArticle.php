@@ -56,6 +56,11 @@ class FormEditArticle extends Component
 
     session()->flash('message' , 'Articolo correttamente modificato');
 
+
+    // da valutare
+    return redirect()->route('articles.index');
+
+
     }
 
     public function render()
