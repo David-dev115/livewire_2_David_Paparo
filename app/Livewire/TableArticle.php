@@ -7,6 +7,13 @@ use App\Models\Article;
 
 class TableArticle extends Component
 {
+
+    public function destroy(Article $article) {
+
+        $article->delete();
+
+    }
+
     public function render()
     {
 

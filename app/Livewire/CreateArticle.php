@@ -18,9 +18,10 @@ class CreateArticle extends Component
 
     #[Validate('required', message: 'Inserire obbligatoriamente un contenutp.')]
     #[Validate('min:7', message: 'questo campo deve contenere almeno 7 caratteri')]
-    public $body; 
+    public $body;
 
-    
+
+
     public function store() {
 
     $this->validate();
@@ -33,7 +34,7 @@ class CreateArticle extends Component
 
     // $this->clearForm();
     $this->reset();
-        
+
     session()->flash('message' , 'Articolo correttamente creato');
 
     }
