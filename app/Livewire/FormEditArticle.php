@@ -2,11 +2,10 @@
 
 namespace App\Livewire;
 
-use Livewire\Component;
-use App\Models\Article;
 use Livewire\Attributes\Validate;
+use Livewire\Component;
 
-class CreateArticle extends Component
+class FormEditArticle extends Component
 {
     #[Validate('required', message: 'Inserire obbligatoriamente un titolo.')]
     #[Validate('min:5', message: 'Il titolo deve contenere almeno 5 caratteri')]
@@ -18,18 +17,18 @@ class CreateArticle extends Component
 
     #[Validate('required', message: 'Inserire obbligatoriamente un contenutp.')]
     #[Validate('min:7', message: 'questo campo deve contenere almeno 7 caratteri')]
-    public $body; 
+    public $body;
 
-    
-    public function store() {
+
+    public function updateArticle() {
 
     $this->validate();
 
-    Article::create([
-        'title' => $this->title,
-        'subtitle' => $this->subtitle,
-        'body' => $this->body
-        ]);
+    // Article::create([
+    //     'title' => $this->title,
+    //     'subtitle' => $this->subtitle,
+    //     'body' => $this->body
+    //     ]);
 
     // $this->clearForm();
     $this->reset();
@@ -38,17 +37,8 @@ class CreateArticle extends Component
 
     }
 
-    // protected function clearForm () {
-
-    // $this->title = "";
-    // $this->subtitle = "";
-    // $this->body = "";
-
-    // }
-
-
     public function render()
     {
-        return view('livewire.create-article');
+        return view('livewire.form-edit-article');
     }
 }
