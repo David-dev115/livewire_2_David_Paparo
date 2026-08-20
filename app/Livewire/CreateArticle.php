@@ -8,9 +8,12 @@ use Livewire\Attributes\Validate;
 
 use Livewire\WithFileUploads;
 
+
 class CreateArticle extends Component
 {
 
+    // riferimento documentazione
+    // https://livewire.laravel.com/docs/4.x/uploads
     use WithFileUploads;
 
 
@@ -26,7 +29,8 @@ class CreateArticle extends Component
     #[Validate('min:7', message: 'questo campo deve contenere almeno 7 caratteri')]
     public $body;
 
-    #[Validate('nullable|image|max:2048', message: 'Seleziona un\'immagine).')]
+    // https://livewire.laravel.com/docs/4.x/uploads
+    #[Validate('nullable|image|max:1024')]
     public $image;
 
 
@@ -35,22 +39,15 @@ class CreateArticle extends Component
 
     $this->validate();
 
-    // dd($this->image);
-    // dd($this->image->store('articles', 'public'));
-
-    // if ($this->image) {
-    // $image = $this->image->store('articles', 'public');
-    // } else {
-    // $image = 'articles/default.jpg';
-    // }
 
     if ($this->image) {
     $image = $this->image->store('articles', 'public');
 
-    dd($image);
-    } else {
+     } else {
     $image = 'articles/default.jpg';
         }
+
+
 
     Article::create([
         'title' => $this->title,
@@ -67,6 +64,28 @@ class CreateArticle extends Component
     return redirect()->route('articles.index');
 
     }
+
+//     public function store()
+// {
+//     $this->validate();
+
+//     if ($this->image) {
+//         $image = $this->image->store('articles', 'public');
+
+//         dd('IMMAGINE PRESENTE', $image);
+//     } else {
+//         dd('IMMAGINE ASSENTE');
+//     }
+// }
+
+
+
+
+
+
+
+
+
 
     // protected function clearForm () {
 

@@ -27,6 +27,7 @@
                     <a href="{{route('articles.show' , compact('article'))}}" class="btn btn-info" >Dettaglio</a>
                     <a href="{{route('articles.edit' , compact('article'))}}" class="btn btn-warning" >Modifica</a>
                     <button  wire:click="destroy({{$article}})"
+                    {{--  https://livewire.laravel.com/docs/4.x/wire-confirm --}}
                      wire:confirm="Sei sicuro di voler eliminare questo articolo?"
                     class="btn btn-danger" >Elimina</button>
 

@@ -28,6 +28,32 @@
 
         </div>
 
+        <div class="mb-3">
+            <label for="image" class="form-label">Sostituisci immagine</label>
+
+            <div>
+                <img src="{{ asset('storage/' . $article->image) }}" alt="Immagine attuale dell'articolo" class="" style="max-width: 250px;"
+                >
+            </div>
+
+            <input wire:model="image" type="file" class="form-control" id="image" accept="image/*">
+
+            <div wire:loading wire:target="image" class="mt-2">
+                Caricamento immagine... ATTENDI caricamento prima di confermare l'operazione
+            </div>
+
+            @if ($image)
+            <div wire:loading.remove wire:target="image" class="mt-2">
+                Nuova immagine caricata. Adesso puoi cliccare su "MODIFICA"
+            </div>
+            @endif
+
+            @error('image')
+            <div class="text-r">{{ $message }}</div>
+            @enderror
+
+        </div>
+
 
 
         <button type="submit" class="btn btn-primary">Modifica</button>

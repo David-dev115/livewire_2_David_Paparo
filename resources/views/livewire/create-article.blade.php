@@ -30,7 +30,21 @@
 
         <div class="mb-3">
             <label for="image" class="form-label">Immagine</label>
-            <input wire:model="image" type="file" class="form-control" id="image" accept="image/*">
+            <input wire:model.live="image" type="file" class="form-control" id="image" accept="image/*">
+
+            {{-- documentazione --}}
+            {{-- https://livewire.laravel.com/docs/4.x/loading-states#advantages-over-wireloading --}}
+
+            <div wire:loading wire:target="image" class="mt-2">
+                Caricamento immagine...ATTENDI CONFERMA PRIMA DI CLICCARE "Crea"
+            </div>
+
+            @if ($image)
+            <div wire:loading.remove wire:target="image" class="mt-2">
+                Immagine caricata. Adesso puoi cliccare sul bottone "CREA"
+            </div>
+            @endif
+
             @error('image')<div class="text-r">{{ $message }}</div>@enderror
         </div>
 
